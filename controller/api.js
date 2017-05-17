@@ -24,7 +24,7 @@ module.exports = {
 	findContactById : function(req, res, next) {
 		var id = req.params.id;
 		Contact.findById(id, function(err, contact) {
-			res.send("Contact: " + contact.first_name + " " + contact.last_name);
+			res.json(contact);
 		});
 	},
 	editContactById : function(req, res) {
