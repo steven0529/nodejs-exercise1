@@ -14,5 +14,5 @@ app.get('/api/contacts/:id', api.findContactById);
 app.put('/api/contacts/:id', api.editContactById);
 app.delete('/api/contacts/:id', api.deleteContactById);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log("listening at port 3000");
