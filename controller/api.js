@@ -19,8 +19,8 @@ module.exports = {
 				fs.rename(file.path, 'public/prof_pics/' + fileName, function (err) {
 					if (err) throw err;
 				})
-				var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-				contact.profile_pic_url = fullUrl + '/' + fileName
+				var fullUrl = req.protocol + '://' + req.get('host') + '/prof_pics/';
+				contact.profile_pic_url = fullUrl + fileName
 			})
 		}
 		Contact.create(contact, function (err, contact) {
@@ -48,8 +48,8 @@ module.exports = {
 				fs.rename(file.path, 'public/prof_pics/' + fileName, function (err) {
 					if (err) throw err;
 				})
-				var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-				contact.profile_pic_url = fullUrl + '/' + fileName
+				var fullUrl = req.protocol + '://' + req.get('host') + '/prof_pics/';
+				contact.profile_pic_url = fullUrl + fileName
 			})
 		}
 		Contact.update({ _id: id }, contact, function (err, affected, resp) {
