@@ -4,12 +4,13 @@ var connection = mongoose.createConnection('mongodb://steven0529:chuck0529@ds143
 
 var Schema = mongoose.Schema;
 
-var contactSchema =  new Schema({
-	first_name : String,
-	last_name : String,
-	address: String, 
-	email : String,
-	contact_number: String
+var contactSchema = new Schema({
+	first_name: String,
+	last_name: String,
+	address: String,
+	email: String,
+	contact_number: String,
+	profile_pic_url: String
 });
 
 module.exports = connection.model('Contact', contactSchema);

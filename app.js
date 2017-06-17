@@ -1,18 +1,14 @@
 var express = require('express');
-var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
 
+var contacts = require('./routes/contacts')
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/api/contacts', contacts)
 
-var api = require('./controller/api');
-
-app.get('/api/contacts', api.getContacts);
-app.post('/api/contacts', api.saveContact);
-app.get('/api/contacts/:id', api.findContactById);
-app.put('/api/contacts/:id', api.editContactById);
-app.delete('/api/contacts/:id', api.deleteContactById);
+app.use(express.static(__dirname + '/public'));
 
 app.listen(process.env.PORT || 3000);
-console.log("listening at port 3000");
+console.log("App started")
